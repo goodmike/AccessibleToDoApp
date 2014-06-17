@@ -1,7 +1,7 @@
 Todos.TodosController = Ember.ArrayController.extend({
     actions: {
         clearCompleted: function() {
-            var completed = this.filterBy('isCompleted', true);
+            var completed = this.get('completed', true);
             completed.invoke('deleteRecord');
             completed.invoke('save');
         },
@@ -29,9 +29,13 @@ Todos.TodosController = Ember.ArrayController.extend({
         return this.filterBy('isCompleted', false).get('length');
     }.property('@each.isCompleted'),
 
-    numCompleted: function() {
-        return this.filterBy('isCompleted', true).get('length');
+    completed: function() {
+        return this.filterBy('isCompleted', true);
     }.property('@each.isCompleted'),
+
+    numCompleted: function() {
+        return this.get('completed').get('length');
+    }.property('completed'),
 
     hasCompleted: function() {
         return this.get('numCompleted') > 0;
