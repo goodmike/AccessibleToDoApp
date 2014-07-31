@@ -57,11 +57,13 @@
           <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{#if isEditing}}
                 {{edit-todo class="edit" value=title focus-out="acceptChanges"
-                    insert-newline="acceptChanges"}}
+                    }}
             {{else}}
                 {{input type="checkbox" checked=isCompleted class="toggle"
                     aria-described-by="checkbox-hint"}}
-                <label {{action "editTodo" on="doubleClick"}}>{{title}}</label>
+                {{#view "Todos.TodoLabelView"}}
+                  <label tabindex="0">{{title}}</label>
+                {{/view}}
                 <button {{action "removeTodo"}} class="destroy"></button>
             {{/if}}
           </li>
@@ -80,5 +82,6 @@
       <script src="js/controllers/todos_controller.js"></script>
       <script src="js/controllers/todo_controller.js"></script>
       <script src="js/views/edit_todo_view.js"></script>
+      <script src="js/views/todo_label_view.js"></script>
   </body>
 </html>
