@@ -52,23 +52,31 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="todos/index">
-        <ul id="todo-list">
+        <table id="todo-list" cellpadding="0" cellspacing="0">
+          <tbody>
           {{#each itemController="todo"}}
-          <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+          <tr {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{#if isEditing}}
+              <td colspan="3">
                 {{edit-todo class="edit" value=title focus-out="acceptChanges"
                     }}
+              </td>
             {{else}}
+              <td>
                 {{input type="checkbox" checked=isCompleted class="toggle"
                     aria-described-by="checkbox-hint"}}
+              </td>
+              <td class="todo-text">
                 {{#view "Todos.TodoLabelView"}}
-                  <label tabindex="0">{{title}}</label>
+                <span tabindex="0">{{title}}</span>
                 {{/view}}
-                <button {{action "removeTodo"}} class="destroy"></button>
+              </td>
+              <td><button {{action "removeTodo"}} class="destroy"></button></td>
             {{/if}}
-          </li>
+          </tr>
           {{/each}}
-        </ul>
+          </tbody>
+        </table>
     </script>
 
       <script src="js/libs/jquery-1.10.2.min.js"></script>
