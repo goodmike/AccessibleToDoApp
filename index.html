@@ -57,7 +57,7 @@
           {{#each itemController="todo"}}
           <tr {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{#if isEditing}}
-              <td colspan="3">
+              <td colspan="2">
                 {{edit-todo class="edit" value=title focus-out="acceptChanges"
                     }}
               </td>
@@ -71,7 +71,9 @@
                 <span tabindex="0">{{title}}</span>
                 {{/view}}
               </td>
-              <td><button {{action "removeTodo"}} class="destroy"></button></td>
+              <td class="remove-control-container">
+                <button {{action "removeTodo"}} class="destroy"></button>
+              </td>
             {{/if}}
           </tr>
           {{/each}}

@@ -235,6 +235,7 @@ label[for='toggle-all'] {
 }
 
 #todo-list .todo-text {
+  position: relative;
   width: 100%;
 }
 
@@ -255,6 +256,12 @@ label[for='toggle-all'] {
 #todo-list tr.completed span {
 	color: #a9a9a9;
 	text-decoration: line-through;
+}
+#todo-list td.remove-control-container {
+    position:relative
+}
+#todo-list td.remove-control-container .destroy {
+    display: block;
 }
 
 #todo-list td .destroy {
