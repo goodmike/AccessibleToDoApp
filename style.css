@@ -282,7 +282,8 @@ label[for='toggle-all'] {
 	transition: all 0.2s;
 }
 
-#todo-list td .destroy:hover {
+#todo-list td .destroy:hover,
+#todo-list td .destroy:focus {
 	text-shadow: 0 0 1px #000,
 				 0 0 10px rgba(199, 107, 107, 0.8);
 	-webkit-transform: scale(1.3);
@@ -298,6 +299,10 @@ label[for='toggle-all'] {
 
 #todo-list td:hover .destroy {
 	display: block;
+}
+
+#todo-list .destroy#hover {
+    display: block
 }
 
 #todo-list td .edit {
