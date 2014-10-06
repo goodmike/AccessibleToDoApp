@@ -257,15 +257,19 @@ label[for='toggle-all'] {
 	color: #a9a9a9;
 	text-decoration: line-through;
 }
-#todo-list td.remove-control-container {
-    position:relative
-}
-#todo-list td.remove-control-container .destroy {
-    display: block;
+
+#todo-list span:focus ~ button.destroy,
+#todo-list span:hover ~ button.destroy {
+    opacity: 1.0;
 }
 
-#todo-list td .destroy {
-	display: none;
+#todo-list td button.destroy:focus,
+#todo-list td button.destroy:hover {
+	opacity: 1.0;
+}
+
+#todo-list td button.destroy {
+	opacity: 0;
 	position: absolute;
 	top: 0;
 	right: 10px;

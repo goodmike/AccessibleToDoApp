@@ -69,10 +69,8 @@
               <td class="todo-text">
                 {{#view "Todos.TodoLabelView"}}
                 <span tabindex="0">{{title}}</span>
-                {{/view}}
-              </td>
-              <td class="remove-control-container">
                 <button {{action "removeTodo"}} title="Delete this to-do." class="destroy"></button>
+                {{/view}}
               </td>
             {{/if}}
           </tr>

@@ -6,6 +6,5 @@ Todos.TodoLabelView = Ember.View.extend({
     },
     doubleClick: function() {
       this.get("controller").send("editTodo");
-    },
-
+    }
 });
